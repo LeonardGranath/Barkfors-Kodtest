@@ -28,7 +28,7 @@
                         <GridViewColumn Header="Brand" DisplayMemberBinding="{Binding Brand}" Width="80" />
                         <GridViewColumn Header="Type of Fuel" DisplayMemberBinding="{Binding TypeOfFuel}" Width="80" />
                         <GridViewColumn Header="Color" DisplayMemberBinding="{Binding Color}" Width="100" />
-                        <GridViewColumn Header="Equipment" DisplayMemberBinding="{Binding Equipment}" Width="100" />
+                        <GridViewColumn Header="Equipment" DisplayMemberBinding="{Binding Equipment}" Width="150" />
                     </GridView>
                 </ListView.View>
             </ListView>

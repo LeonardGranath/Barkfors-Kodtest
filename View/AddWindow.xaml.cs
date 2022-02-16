@@ -54,7 +54,7 @@ namespace Barkfors_Kodtest
 
             foreach (MethodInfo info in resultingInfos)
             {
-                string colorName = ((Color) info.Invoke(null, null)).Name;
+                string colorName = ((Color)info.Invoke(null, null)).Name;
                 colorName = AddSpaceAtBigLetters(colorName);
 
                 ComboBoxItem newItem = new();

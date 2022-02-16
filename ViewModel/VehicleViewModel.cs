@@ -34,5 +34,10 @@ namespace Barkfors_Kodtest.ViewModel
         {
             return Vehicles.Remove(vehicle);
         }
+
+        internal void Modify(int selectedIndex, Vehicle createdVehicle)
+        {
+            Vehicles[selectedIndex] = createdVehicle;
+        }
     }
 }

@@ -13,6 +13,8 @@ namespace Barkfors_Kodtest
         private readonly VehicleViewModel model = new();
         private AddWindow addWin = new();
 
+        private bool add = true;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -22,17 +24,25 @@ namespace Barkfors_Kodtest
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (addWin.IsLoaded == false)
+            if (!addWin.IsLoaded)
                 addWin = new();
 
+            add = true;
             addWin.Show();
             addWin.Closing += AddWin_Closing;
         }
 
         private void AddWin_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (model.Add(addWin.CreatedVehicle))
-                VehicleList.Items.Refresh();
+            if (addWin.CreatedVehicle == null)
+                return;
+
+            if (add)
+                model.Add(addWin.CreatedVehicle);
+            else
+                model.Modify(VehicleList.SelectedIndex, addWin.CreatedVehicle);
+
+            VehicleList.Items.Refresh();
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
@@ -43,7 +53,11 @@ namespace Barkfors_Kodtest
 
         private void ModifyBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new System.NotSupportedException();
+            addWin = new();
+
+            add = false;
+            addWin.Show();
+            addWin.Closing += AddWin_Closing;
         }
 
         private void VehicleList_SelectionChanged(object sender, SelectionChangedEventArgs e)
