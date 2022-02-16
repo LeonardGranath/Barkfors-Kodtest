@@ -34,13 +34,19 @@ namespace Barkfors_Kodtest
 
         private void AddWin_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (addWin.CreatedVehicle == null)
+            Vehicle newVehicle = addWin.CreatedVehicle;
+
+            if (newVehicle == null)
                 return;
 
             if (add)
-                model.Add(addWin.CreatedVehicle);
+            {
+                newVehicle.LicensePlateNumber = model.AvailableLicensePlateNbr();
+                newVehicle.VIN = model.AvailableVIN();
+                model.Add(newVehicle);
+            }
             else
-                model.Modify(VehicleList.SelectedIndex, addWin.CreatedVehicle);
+                model.Modify(VehicleList.SelectedIndex, newVehicle);
 
             VehicleList.Items.Refresh();
         }

@@ -15,7 +15,7 @@ namespace Barkfors_Kodtest
     /// </summary>
     public partial class AddWindow : Window
     {
-        internal Vehicle CreatedVehicle { get; private set; }
+        public Vehicle CreatedVehicle { get; private set; }
 
         public AddWindow()
         {
@@ -27,7 +27,7 @@ namespace Barkfors_Kodtest
             PopulateColorBox();
         }
 
-        public static void FillWithEnum(ComboBox box, Type items, Type itemType)
+        private static void FillWithEnum(ComboBox box, Type items, Type itemType)
         {
             foreach (var item in Enum.GetValues(items))
             {
@@ -99,7 +99,7 @@ namespace Barkfors_Kodtest
             for (int i = 0; i < equipmentBoxes.Count(); i++)
                 equipment[i] = (Equipment)Enum.Parse(typeof(Equipment), equipmentBoxes.ElementAt(i).Content.ToString());
 
-            CreatedVehicle = new(0, "000", ModelNameBox.Text, brand, types, ((ComboBoxItem)ColorBox.SelectedItem).Content.ToString(), equipment);
+            CreatedVehicle = new(ModelNameBox.Text, brand, types, ((ComboBoxItem)ColorBox.SelectedItem).Content.ToString(), equipment);
 
             Close();
         }

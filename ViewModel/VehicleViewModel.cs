@@ -1,13 +1,16 @@
 ﻿using Barkfors_Kodtest.VehicleFolder;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Barkfors_Kodtest.ViewModel
 {
     internal class VehicleViewModel : INotifyPropertyChanged
     {
         public IList<Vehicle> Vehicles { get; }
+        public int Count => Vehicles.Count;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public VehicleViewModel()
         {
@@ -23,21 +26,32 @@ namespace Barkfors_Kodtest.ViewModel
             return true;
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected void OnPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         public bool Delete(Vehicle vehicle)
         {
             return Vehicles.Remove(vehicle);
         }
 
-        internal void Modify(int selectedIndex, Vehicle createdVehicle)
+        public void Modify(int selectedIndex, Vehicle createdVehicle)
         {
+            createdVehicle.LicensePlateNumber = Vehicles[selectedIndex].LicensePlateNumber;
+            createdVehicle.VIN = Vehicles[selectedIndex].VIN;
+
             Vehicles[selectedIndex] = createdVehicle;
+        }
+
+        public string AvailableLicensePlateNbr()
+        {
+            return Count == 0 ? 0.ToString("D3") : (Vehicles.Max(v => int.Parse(v.LicensePlateNumber)) + 1).ToString("D3");
+        }
+
+        public int AvailableVIN()
+        {
+            return Count == 0 ? 0 : Vehicles.Max(v => v.VIN + 1);
+        }
+
+        protected void OnPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Barkfors_Kodtest.VehicleFolder
 {
-    enum Equipment
+    public enum Equipment
     {
         Sirens, Speakers, Radar, Railgear, Crane
     }
