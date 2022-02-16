@@ -1,7 +1,8 @@
-﻿using Barkfors_Kodtest.Vehicle;
+﻿using Barkfors_Kodtest.VehicleFolder;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows;
@@ -14,6 +15,8 @@ namespace Barkfors_Kodtest
     /// </summary>
     public partial class AddWindow : Window
     {
+        internal Vehicle CreatedVehicle { get; private set; }
+
         public AddWindow()
         {
             InitializeComponent();
@@ -77,9 +80,33 @@ namespace Barkfors_Kodtest
             return res.ToString();
         }
 
+        /***
+         * Temporary solution to disallow changing selectedindex
+         */
         private void EquipmentBox_DropDownClosed(object sender, EventArgs e)
         {
             EquipmentBox.SelectedIndex = -1;
+        }
+
+        private void OkBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Brands brand = (Brands)Enum.Parse(typeof(Brands), ((ComboBoxItem)BrandBox.SelectedItem).Content.ToString());
+            FuelTypes types = (FuelTypes)Enum.Parse(typeof(FuelTypes), ((ComboBoxItem)FuelBox.SelectedItem).Content.ToString());
+
+            IEnumerable<CheckBox> equipmentBoxes = EquipmentBox.Items.Cast<CheckBox>().Where(e => e.IsChecked == true);
+            Equipment[] equipment = new Equipment[equipmentBoxes.Count()];
+
+            for (int i = 0; i < equipmentBoxes.Count(); i++)
+                equipment[i] = (Equipment)Enum.Parse(typeof(Equipment), equipmentBoxes.ElementAt(i).Content.ToString());
+
+            CreatedVehicle = new(0, "000", ModelNameBox.Text, brand, types, ((ComboBoxItem)ColorBox.SelectedItem).Content.ToString(), equipment);
+
+            Close();
+        }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
         }
     }
 }

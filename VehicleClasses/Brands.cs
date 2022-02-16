@@ -1,4 +1,4 @@
-﻿namespace Barkfors_Kodtest.Vehicle
+﻿namespace Barkfors_Kodtest.VehicleFolder
 {
     enum Brands
     {
