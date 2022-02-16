@@ -15,9 +15,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Name="AddBtn" Content="Add" Margin="10,0,10,0" Click="AddBtn_Click" />
-                <Button Name="DeleteBtn" Content="Delete" Margin="10,0,10,0" Click="DeleteBtn_Click" />
-                <Button Name="ModifyBtn" Content="Modify" Margin="10,0,10,0" Click="ModifyBtn_Click" />
+                <Button Name="AddBtn" Content="Add" Margin="10,0,10,0" Click="AddBtn_Click" Width="100" />
+                <Button Name="DeleteBtn" Content="Delete" Margin="10,0,10,0" Click="DeleteBtn_Click" Width="100" />
+                <Button Name="ModifyBtn" Content="Modify" Margin="10,0,10,0" Click="ModifyBtn_Click" Width="100" />
             </StackPanel>
             <ListView Name="VehicleList" Grid.Row="1" Margin="0,15,0,0" SelectionChanged="VehicleList_SelectionChanged" ItemsSource="{Binding Vehicles}">
                 <ListView.View>

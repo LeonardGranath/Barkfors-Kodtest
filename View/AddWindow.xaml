@@ -4,39 +4,39 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Add Window" Height="450" Width="450">
+        Title="Add Window" Height="263" Width="246">
     <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="230" VerticalAlignment="Center">
             <Label Content="Add Vehicle" HorizontalAlignment="Center" />
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label Content="Modelname" />
-                <TextBox Name="ModelNameBox" Width="90" />
+                <Label Content="Model" Width="80" />
+                <TextBox Name="ModelNameBox"  Width="130" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label Content="Brand" />
-                <ComboBox Name="BrandBox" Width="100" />
+                <Label Content="Brand" Width="80" />
+                <ComboBox Name="BrandBox" Width="130" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label Content="Fuel" />
-                <ComboBox Name="FuelBox" Width="100" />
+                <Label Content="Fuel" Width="80" />
+                <ComboBox Name="FuelBox" Width="130" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label Content="Color" />
+                <Label Content="Color" Width="80" />
                 <ComboBox Name="ColorBox" Width="130" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label Content="Equipment" />
-                <ComboBox Name="EquipmentBox" Width="100" DropDownClosed="EquipmentBox_DropDownClosed" />
+                <Label Content="Equipment" Width="80" />
+                <ComboBox Name="EquipmentBox"  Width="130" DropDownClosed="EquipmentBox_DropDownClosed" />
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,5" HorizontalAlignment="Center">
-                <Button Name="OkBtn" Content="OK" Margin="0,0,10,0" Click="OkBtn_Click" />
-                <Button Name="CancelBtn" Content="Cancel" Margin="10,0,0,0" Click="CancelBtn_Click" />
+            <StackPanel Orientation="Horizontal" Margin="5,0,0,5" HorizontalAlignment="Left">
+                <Button Name="OkBtn" Width="95" Content="OK" Margin="0,0,10,0" Click="OkBtn_Click" />
+                <Button Name="CancelBtn" Width="90" Content="Cancel" Margin="10,0,0,0" Click="CancelBtn_Click" />
             </StackPanel>
         </StackPanel>
     </Grid>
