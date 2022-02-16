@@ -1,4 +1,5 @@
-﻿using Barkfors_Kodtest.ViewModel;
+﻿using Barkfors_Kodtest.VehicleFolder;
+using Barkfors_Kodtest.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -21,7 +22,7 @@ namespace Barkfors_Kodtest
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (addWin == null)
+            if (addWin.IsLoaded == false)
                 addWin = new();
 
             addWin.Show();
@@ -30,13 +31,14 @@ namespace Barkfors_Kodtest
 
         private void AddWin_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
-            model.Add(addWin.CreatedVehicle);
-            VehicleList.Items.Refresh();
+            if (model.Add(addWin.CreatedVehicle))
+                VehicleList.Items.Refresh();
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new System.NotSupportedException();
+            if (model.Delete((Vehicle)VehicleList.SelectedItem))
+                VehicleList.Items.Refresh();
         }
 
         private void ModifyBtn_Click(object sender, RoutedEventArgs e)

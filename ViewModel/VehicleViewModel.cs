@@ -1,4 +1,5 @@
 ﻿using Barkfors_Kodtest.VehicleFolder;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -27,6 +28,11 @@ namespace Barkfors_Kodtest.ViewModel
         protected void OnPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public bool Delete(Vehicle vehicle)
+        {
+            return Vehicles.Remove(vehicle);
         }
     }
 }

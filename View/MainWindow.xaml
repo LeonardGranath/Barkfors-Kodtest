@@ -23,7 +23,7 @@
                 <ListView.View>
                     <GridView x:Name="grdTest">
                         <GridViewColumn Header="VIN" DisplayMemberBinding="{Binding VIN}"  Width="50"/>
-                        <GridViewColumn Header="License Plate Number" DisplayMemberBinding="{Binding LicensePlateNumber}"  Width="150" />
+                        <GridViewColumn Header="License Plate Number" DisplayMemberBinding="{Binding LicensePlateNumber}"  Width="120" />
                         <GridViewColumn Header="Model Name" DisplayMemberBinding="{Binding ModelName}" Width="100" />
                         <GridViewColumn Header="Brand" DisplayMemberBinding="{Binding Brand}" Width="80" />
                         <GridViewColumn Header="Type of Fuel" DisplayMemberBinding="{Binding TypeOfFuel}" Width="80" />
