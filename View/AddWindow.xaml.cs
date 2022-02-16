@@ -106,7 +106,7 @@ namespace Barkfors_Kodtest
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
+            Close();
         }
     }
 }

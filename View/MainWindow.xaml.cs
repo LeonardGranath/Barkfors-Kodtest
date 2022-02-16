@@ -29,6 +29,7 @@ namespace Barkfors_Kodtest
 
             add = true;
             addWin.Show();
+
             addWin.Closing += AddWin_Closing;
         }
 
