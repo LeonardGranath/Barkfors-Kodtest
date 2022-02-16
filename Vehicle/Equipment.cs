@@ -1,6 +1,7 @@
-﻿namespace Barkfors.Vehicle
+﻿namespace Barkfors_Kodtest.Vehicle
 {
-    internal class Equipment
+    enum Equipment
     {
+        Sirens, Speakers, Radar, Railgear, Crane
     }
 }

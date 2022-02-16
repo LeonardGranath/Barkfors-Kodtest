@@ -1,0 +1,43 @@
+﻿<Window x:Class="Barkfors_Kodtest.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Add Window" Height="450" Width="450">
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <Label Content="Add Vehicle" HorizontalAlignment="Center" />
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Label Content="Modelname" />
+                <TextBox Width="90" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Label Content="Brand" />
+                <ComboBox Name="BrandBox" Width="100" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Label Content="Fuel" />
+                <ComboBox Name="FuelBox" Width="100" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Label Content="Color" />
+                <ComboBox Name="ColorBox" Width="130" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Label Content="Equipment" />
+                <ComboBox Name="EquipmentBox" Width="100" DropDownClosed="EquipmentBox_DropDownClosed" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5" HorizontalAlignment="Center">
+                <Button Content="OK" Margin="0,0,10,0" />
+                <Button Content="Cancel" Margin="10,0,0,0" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

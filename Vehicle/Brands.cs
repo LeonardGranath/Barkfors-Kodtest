@@ -1,7 +1,7 @@
 ﻿namespace Barkfors_Kodtest.Vehicle
 {
-    enum FuelTypes
+    enum Brands
     {
-        Oil, Electric, Gas
+        Volvo, Ford, Tesla
     }
 }

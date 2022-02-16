@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Barkfors
+namespace Barkfors_Kodtest
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -15,7 +15,8 @@ namespace Barkfors
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new System.NotSupportedException();
+            AddWindow addWin = new();
+            addWin.Show();
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
