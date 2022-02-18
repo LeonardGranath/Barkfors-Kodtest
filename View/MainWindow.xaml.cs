@@ -1,5 +1,6 @@
 ﻿using Barkfors_Kodtest.VehicleFolder;
 using Barkfors_Kodtest.ViewModel;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -20,6 +21,8 @@ namespace Barkfors_Kodtest
             InitializeComponent();
 
             VehicleList.DataContext = model;
+
+            Closing += (sender, e) => { Application.Current.Shutdown(); };
         }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
